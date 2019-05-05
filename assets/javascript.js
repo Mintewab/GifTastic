@@ -65,5 +65,19 @@ function renderButtons() {
                     }
 
                  });
+                 roboDiv.append(p);
+                 roboDiv.append(roboImage);
+                 $("#gifs-appear-here").prepend(roboDiv);
+                }
+            });
+    });
 
-                 
+}
+$("#add-tech").on("click", function (event) {
+    
+    event.preventDefault();
+    var tech = $("#tech-input").val().trim();
+    topics.push(tech);
+    renderButtons();
+});
+renderButtons();
