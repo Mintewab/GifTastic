@@ -1,4 +1,4 @@
-var topics = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King", "Heathers"];
+var topics = ["scifi", " silicon Valley", "Big Bang Theory ", "Artificial Intellegence", "virtual Reality", "NASA", "IBM", "Tesla", "Dell", "Robot", "Fiber Optics"];
 function renderButtons() {
     $("#buttons-view").empty();
 
@@ -15,66 +15,62 @@ function renderButtons() {
         var robo = $(this).attr("data-name");
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        robo + "&api_key=MkBwE9oZHRjJB9ORgyh12voLQJVQX5cj&limit=10";
+            robo + "&api_key=MkBwE9oZHRjJB9ORgyh12voLQJVQX5cj&limit=10";
 
         $.ajax({
             url: queryURL,
             method: "GET"
         })
-        .then(function (response) {
-            console.log(queryURL);
+            .then(function (response) {
+                var results = response.data;
 
-            console.log(response);
-           
-            var results = response.data;
+                $("#gifs-appear-here").empty();
+                for (var i = 0; i < results.length; i++) {
 
-            $("#gifs-appear-here").empty();
 
-            for (var i = 0; i < results.length; i++) {
+                    var roboDiv = $("<div>");
 
-                
-                var roboDiv = $("<div>");
 
-                
-                var p = $("<p>").text("Rating: " + results[i].rating);
+                    var p = $("<p>").text("Rating: " + results[i].rating);
 
-               
-                var roboImage = $("<img>");
-                
-                roboImage.attr("src", results[i].images.fixed_height.url);
 
-                t = results[i].images.fixed_height.url;                                
+                    var roboImage = $("<img>");
 
-                t = t.slice(0, t.length - 4);
+                    roboImage.attr("src", results[i].images.fixed_height.url);
+                    roboImage.css({ "width": "300px", "height": "300px" });
 
-                t = t + "_s.gif";
+                    t = results[i].images.fixed_height.url;
 
-                roboImage.attr("src", t);
+                    t = t.slice(0, t.length - 4);
 
-                roboImage.on("click", function () {
+                    t = t + "_s.gif";
 
-                    var src=$(this).attr("src");
-                    if ($(src.split("_")).last()[0] == "s.gif"){
-                        $(this).attr("src",src.replace("_s.gif",".gif"));
-                    }
+                    roboImage.attr("src", t);
 
-                    else {
+                    roboImage.on("click", function () {
 
-                     $(this).attr("src",src.replace(".gif","_s.gif"));
+                        var src = $(this).attr("src");
+                        if ($(src.split("_")).last()[0] == "s.gif") {
+                            $(this).attr("src", src.replace("_s.gif", ".gif"));
+                        }
 
-                    }
+                        else {
 
-                 });
-                 roboDiv.append(p);
-                 roboDiv.append(roboImage);
-                 $("#gifs-appear-here").prepend(roboDiv);
+                            $(this).attr("src", src.replace(".gif", "_s.gif"));
+
+                        }
+
+                    });
+                    roboDiv.append(p);
+                    roboDiv.append(roboImage);
+                    $("#gifs-appear-here").prepend(roboDiv);
                 }
             });
     });
 
 }
 $("#add-tech").on("click", function (event) {
-    
+
     event.preventDefault();
     var tech = $("#tech-input").val().trim();
     topics.push(tech);

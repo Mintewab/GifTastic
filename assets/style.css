@@ -1,6 +1,53 @@
 body {
     background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/1920x1080/032369.jpg");
-  }
-  button, div, form, input {
-      margin: 10px;
-  }
+}
+
+button, div, form, input {
+    margin: 20px;
+}
+
+#tech-form {
+    text-align: center;
+    color: peru;
+    font-size: 25px
+    
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+#add-tech {
+    color: black;
+    background-color: peru;
+    font-size: 15px;
+}
+
+#buttons-view {
+    color: turquoise;
+    background-color: #001133;
+}
+
+.jumbotron {
+    text-shadow: 3px 2px tan;
+    font-size: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 20px double #001133;
+    color: turquoise;
+    background-color: teal;
+    padding: 10px;
+}
+
+#add-tech-div {
+    background-color: #001133;
+    float: right;
+    width: 300px;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
