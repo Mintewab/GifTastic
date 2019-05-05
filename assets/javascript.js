@@ -25,7 +25,10 @@ function renderButtons() {
             console.log(queryURL);
 
             console.log(response);
+           
+            var results = response.data;
 
+            $("#gifs-appear-here").empty();
 
 
 
