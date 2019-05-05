@@ -51,6 +51,19 @@ function renderButtons() {
 
                 roboImage.attr("src", t);
 
+                roboImage.on("click", function () {
 
-    
-});
+                    var src=$(this).attr("src");
+                    if ($(src.split("_")).last()[0] == "s.gif"){
+                        $(this).attr("src",src.replace("_s.gif",".gif"));
+                    }
+
+                    else {
+
+                     $(this).attr("src",src.replace(".gif","_s.gif"));
+
+                    }
+
+                 });
+
+                 
