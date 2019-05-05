@@ -17,7 +17,10 @@ function renderButtons() {
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         robo + "&api_key=MkBwE9oZHRjJB9ORgyh12voLQJVQX5cj&limit=10";
 
-
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
    
 
 
