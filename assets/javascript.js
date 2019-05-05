@@ -9,4 +9,20 @@ function renderButtons() {
         a.text(topics[i]);
         $("#buttons-view").append(a);
     }
+
+
+    $("button").on("click", function () {
+        var robo = $(this).attr("data-name");
+
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        robo + "&api_key=MkBwE9oZHRjJB9ORgyh12voLQJVQX5cj&limit=10";
+
+  
+   
+
+
+
+
+
+    
 });
