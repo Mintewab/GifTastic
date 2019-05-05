@@ -30,7 +30,26 @@ function renderButtons() {
 
             $("#gifs-appear-here").empty();
 
+            for (var i = 0; i < results.length; i++) {
 
+                
+                var roboDiv = $("<div>");
+
+                
+                var p = $("<p>").text("Rating: " + results[i].rating);
+
+               
+                var roboImage = $("<img>");
+                
+                roboImage.attr("src", results[i].images.fixed_height.url);
+
+                t = results[i].images.fixed_height.url;                                
+
+                t = t.slice(0, t.length - 4);
+
+                t = t + "_s.gif";
+
+                roboImage.attr("src", t);
 
 
     
